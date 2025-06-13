@@ -5,21 +5,27 @@
 # When the set number is met, print out some congratulatory message
 
 
-puts "How many ticket would you like to take today?"    # asks the user for a numeric value to set the counter to
+puts "How many tickets would you like to take today?"
+$max_tickets = gets.chomp.to_i
 
-ticket_max = gets.chomp.to_i                            # sets counter_max equal to the input value and converts it to an integer
+puts "You have #{$max_tickets} tickets left."
 
+def current_ticket_count(x)
 
-def ticket_counter(x)                                   # main loop that counts up or down the counter and set it in the variable current_count
-
-current_count = 0
-
-  if ticket_counter == +
-    current_count += 1
-  elsif ticket_counter == -
-    current_count -= 1
+  if x == "+"
+    $max_tickets -=1
+  elsif x == "-"
+    $max_tickets += 1
+  else
+    if $max_tickets == 0
+      puts "Congrats! You have no tickets left to take today!"
+    end
   end
 
+
+  puts "You have #{$max_tickets} tickets left."
 end
 
-puts ticket_counter(+)
+current_ticket_count("+")
+current_ticket_count("+")
+current_ticket_count("+")
