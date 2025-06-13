@@ -5,27 +5,26 @@
 # When the set number is met, print out some congratulatory message
 
 
-puts "How many tickets would you like to take today?"
-$max_tickets = gets.chomp.to_i
+puts "How many tickets would you like to take?"
+print "> "
 
-puts "You have #{$max_tickets} tickets left."
+ticket_max = gets.chomp.to_i
 
-def current_ticket_count(x)
+puts "You have #{ticket_max} tickets left to take."
+puts "Enter '+' to indicate you've taken a ticket, or '-' to remove one"
 
-  if x == "+"
-    $max_tickets -=1
-  elsif x == "-"
-    $max_tickets += 1
+while ticket_max != 0
+  print "> "
+  current_count = gets.chomp
+
+  if current_count == "+"
+    ticket_max -= 1
+  elsif current_count == "-"
+    ticket_max += 1
   else
-    if $max_tickets == 0
-      puts "Congrats! You have no tickets left to take today!"
-    end
+     puts "Invalid input."
+     next
   end
 
-
-  puts "You have #{$max_tickets} tickets left."
+  puts "You have #{ticket_max} tickets left to take."
 end
-
-current_ticket_count("+")
-current_ticket_count("+")
-current_ticket_count("+")
